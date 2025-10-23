@@ -8,25 +8,22 @@ from langchain_core.messages import HumanMessage, AIMessage
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
 from langchain_groq import ChatGroq
-from pydantic import SecretStr
-from dotenv import load_dotenv
-import os
 from langsmith import traceable
+import os
 
 # -----------------------------
-# 1️⃣ Load Environment Variables
+# 1️⃣ Load Environment Variables (hardcoded)
 # -----------------------------
-load_dotenv()
+GROQ_API_KEY = "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"
+TAVILY_API_KEY = "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"
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-LANGSMITH_API_KEY = os.getenv("LANGSMITH_API_KEY")
-LANGSMITH_ENDPOINT = os.getenv("LANGSMITH_ENDPOINT", "https://api.smith.langchain.com")
-LANGSMITH_PROJECT = os.getenv("LANGSMITH_PROJECT", "HR_MultiAgent_Tracing")
+# ✅ LangSmith setup
+LANGSMITH_TRACING = True
+LANGSMITH_ENDPOINT = "https://api.smith.langchain.com"
+LANGSMITH_API_KEY = "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"
+LANGSMITH_PROJECT = "HR_MultiAgent_Tracing"
 
-if not GROQ_API_KEY or not LANGSMITH_API_KEY:
-    raise ValueError("🚨 Missing GROQ_API_KEY or LANGSMITH_API_KEY in .env file.")
-
-# Enable LangSmith Tracing
+# Enable LangSmith tracing in code
 os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_ENDPOINT"] = LANGSMITH_ENDPOINT
 os.environ["LANGCHAIN_API_KEY"] = LANGSMITH_API_KEY
@@ -41,8 +38,6 @@ llm = ChatGroq(
     model_name="llama-3.1-8b-instant",
     api_key=GROQ_API_KEY
 )
-
-
 print("✅ Groq LLM initialized successfully.\n")
 
 # -----------------------------
