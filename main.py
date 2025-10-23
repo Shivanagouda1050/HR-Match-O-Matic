@@ -39,8 +39,10 @@ print("✅ Environment and LangSmith tracing configured.\n")
 # -----------------------------
 llm = ChatGroq(
     model_name="llama-3.1-8b-instant",
-    groq_api_key=SecretStr(GROQ_API_KEY)
+    api_key=GROQ_API_KEY
 )
+
+
 print("✅ Groq LLM initialized successfully.\n")
 
 # -----------------------------
