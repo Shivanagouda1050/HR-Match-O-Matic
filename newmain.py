@@ -127,8 +127,8 @@ def match_scorer(state: HRState):
 # ✅ LangGraph Workflow Build
 workflow = StateGraph(HRState)
 workflow.add_node("supervisor", supervisor_agent)
-workflow.add_node("ResumeParser", resume_parser)
 workflow.add_node("JDAnalyzer", jd_analyzer)
+workflow.add_node("ResumeParser", resume_parser)
 workflow.add_node("MatchScorer", match_scorer)
 workflow.set_entry_point("supervisor")
 
