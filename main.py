@@ -220,3 +220,7 @@ if __name__ == "__main__":
     print("==============================")
     print(final_result)
     print("\n✨ Tracing active on LangSmith project:", LANGSMITH_PROJECT)
+
+def simple_check(ls):
+    ls = [1,33, 3,4]
+    return ls.sort()
