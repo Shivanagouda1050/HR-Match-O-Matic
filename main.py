@@ -191,7 +191,7 @@ def run_hr_workflow(resume_text: str, jd_text: str):
 
     step_logs = []
 
-    while 1==1:
+    while state.get("next_agent") != END:
         response = graph.invoke(
             state,
             config={"thread_id": "hr_workflow_001"}
