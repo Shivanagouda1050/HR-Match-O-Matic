@@ -62,10 +62,10 @@ def supervisor_agent(state: HRState):
     """Decides which agent should run next."""
     if "ResumeParser" not in state["step_completed"]:
         next_agent = "ResumeParser"
-        msg = "🧑‍💼 Supervisor: Starting with Resume parsing."
+        msg = "🧑‍💼 Supervisor: Starting with Resume parsing agent"
     elif "JDAnalyzer" not in state["step_completed"]:
         next_agent = "JDAnalyzer"
-        msg = "🧑‍💼 Supervisor: Resume parsed. Now analyzing JD."
+        msg = "🧑‍💼 Supervisor: Resume parsed. Now analyzing Job description."
     elif "MatchScorer" not in state["step_completed"]:
         next_agent = "MatchScorer"
         msg = "🧑‍💼 Supervisor: JD analyzed. Now scoring match."
