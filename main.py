@@ -91,7 +91,7 @@ def resume_parser(state: HRState):
     """
     response = llm.invoke([HumanMessage(content=prompt)])
     result = response.content
-    print(f"[RESUME PARSER] Extraction Complete ✅\n")
+    print(f"[RESUME PARSER] Extraction Completed ✅\n")
     return {
         **state,
         "result": result,
@@ -113,7 +113,7 @@ def jd_analyzer(state: HRState):
     """
     response = llm.invoke([HumanMessage(content=prompt)])
     result = response.content
-    print(f"[JD ANALYZER] Analysis Complete ✅\n")
+    print(f"[JD ANALYZER] Analysis Completed ✅\n")
     return {
         **state,
         "result": result,
@@ -216,7 +216,7 @@ if __name__ == "__main__":
 
     final_result, logs = run_hr_workflow(resume, jd)
     print("\n==============================")
-    print("✅ FINAL HR MATCH RESULT")
+    print("✅ FINAL HR MATCH RESULT FOUND AS BELOW")
     print("==============================")
     print(final_result)
     print("\n✨ Tracing active on LangSmith project:", LANGSMITH_PROJECT)
